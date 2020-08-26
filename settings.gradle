@@ -65,3 +65,5 @@ settings.gradle.projectsLoaded {
 		}
 	}
 }
+include 'spring-pratice-demo'
+
