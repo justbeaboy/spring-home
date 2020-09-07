@@ -92,16 +92,17 @@ public interface Decoder<T> {
 	default T decode(DataBuffer buffer, ResolvableType targetType,
 			@Nullable MimeType mimeType, @Nullable Map<String, Object> hints) throws DecodingException {
 
-		MonoProcessor<T> processor = MonoProcessor.create();
-		decodeToMono(Mono.just(buffer), targetType, mimeType, hints).subscribeWith(processor);
-
-		Assert.state(processor.isTerminated(), "DataBuffer decoding should have completed.");
-		Throwable ex = processor.getError();
-		if (ex != null) {
-			throw (ex instanceof CodecException ? (CodecException) ex :
-					new DecodingException("Failed to decode: " + ex.getMessage(), ex));
-		}
-		return processor.peek();
+//		MonoProcessor<T> processor = MonoProcessor.create();
+//		decodeToMono(Mono.just(buffer), targetType, mimeType, hints).subscribeWith(processor);
+//
+//		Assert.state(processor.isTerminated(), "DataBuffer decoding should have completed.");
+//		Throwable ex = processor.getError();
+//		if (ex != null) {
+//			throw (ex instanceof CodecException ? (CodecException) ex :
+//					new DecodingException("Failed to decode: " + ex.getMessage(), ex));
+//		}
+//		return processor.peek();
+		return null;
 	}
 
 	/**
