@@ -636,6 +636,8 @@ class CglibAopProxy implements AopProxy, Serializable {
 		@Override
 		@Nullable
 		public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
+			// 直接生成了CglibMethodInvocation，因为adviceChain是固定不变的，故在创建时已经传入，不需要每次执行时动态再计算了。
+			// 省略了暴露代理判断，无需进行context设置
 			MethodInvocation invocation = new CglibMethodInvocation(
 					proxy, this.target, method, args, this.targetClass, this.adviceChain, methodProxy);
 			// If we get here, we need to create a MethodInvocation.
