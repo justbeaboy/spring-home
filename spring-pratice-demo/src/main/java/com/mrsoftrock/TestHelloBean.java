@@ -1,5 +1,6 @@
 package com.mrsoftrock;
 
+import com.mrsoftrock.entity.Hello;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
